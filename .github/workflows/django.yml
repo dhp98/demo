@@ -52,11 +52,14 @@ jobs:
     - name: Generate Report
       run: |
         pip install coverage
+        cd ./docker_tutorial/backend
         coverage run -m pytest
+        
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v2
     - name: Code Coverage
       run:  |
+          cd ./docker_tutorial/backend
           curl -Os https://uploader.codecov.io/latest/linux/codecov
           chmod +x codecov
           ./codecov
