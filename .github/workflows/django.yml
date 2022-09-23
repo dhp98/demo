@@ -53,6 +53,8 @@ jobs:
       run: |
         pip install coverage
         cd ./docker_tutorial/backend
+        pwd
+        ls -al
         coverage run -m pytest
         
     - name: Upload Coverage to Codecov
@@ -62,4 +64,6 @@ jobs:
           cd ./docker_tutorial/backend
           curl -Os https://uploader.codecov.io/latest/linux/codecov
           chmod +x codecov
+          pwd
+          ls -al
           ./codecov
