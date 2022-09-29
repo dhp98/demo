@@ -53,15 +53,8 @@ jobs:
       run: |
         pip install coverage
         cd ./docker_tutorial/backend
-        coverage run --data-file=coverage.xml -m pytest
+        coverage run -m pytest
+        coverage html
         
     - name: Upload Coverage to Codecov
       uses: codecov/codecov-action@v2
-    - name: Code Coverage
-      run:  |
-          cd ./docker_tutorial/backend
-          curl -Os https://uploader.codecov.io/latest/linux/codecov
-          chmod +x codecov
-          pwd
-          ls -al
-          ./codecov
